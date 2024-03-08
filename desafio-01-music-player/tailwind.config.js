@@ -2,7 +2,16 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+      },
+      colors: {
+        violet: {
+          950: '#2A2141',
+        },
+      },
+    },
   },
   plugins: [],
 }
