@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply min-h-screen bg-zinc-950 text-zinc-50 font-sans
+  @apply min-h-screen bg-zinc-950 text-zinc-50 font-sans antialiased
 }
