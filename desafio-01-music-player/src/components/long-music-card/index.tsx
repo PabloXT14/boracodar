@@ -10,7 +10,7 @@ export const LongMusicCard = ({ className }: LongMusicCardProps) => {
   return (
     <div
       className={twMerge(
-        'flex w-full flex-col gap-7 overflow-hidden rounded-lg bg-violet-950 px-9 py-12 md:h-full',
+        'flex w-full flex-col gap-7 overflow-hidden rounded-lg bg-violet-950 p-7 md:h-full md:px-9 md:py-12',
         className,
       )}
     >
