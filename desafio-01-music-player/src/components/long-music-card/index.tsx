@@ -1,11 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 import bgMusic from '../../assets/images/bg-music.png'
-import {
-  IoPlay,
-  IoPlayBack,
-  IoPlayForward,
-  IoPause,
-} from 'react-icons/io5'
+import { IoPlay, IoPlayBack, IoPlayForward, IoPause } from 'react-icons/io5'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { formatTime } from '../../utils/formate-time'
 import { Music } from '../@types/music'
@@ -16,41 +11,72 @@ type LongMusicCardProps = {
 }
 
 export const LongMusicCard = ({ className, music }: LongMusicCardProps) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-  const [volume, setVolume] = useState(0.4)
+  const volume = 0.4
 
   const togglePlayPause = () => {
-    if (isPlaying) {
-      audioRef?.current?.pause()
-    } else {
-      audioRef?.current?.play()
-    }
+    const audio = audioRef.current
+
+    if (!audio) return
+
+    if (isPlaying) audio.pause()
+    else audio.play()
 
     setIsPlaying((prevState) => !prevState)
   }
 
   const handleTimeUpdate = () => {
-    setCurrentTime(audioRef?.current?.currentTime || 0)
+    const audio = audioRef.current
+
+    if (!audio) return
+
+    setCurrentTime(audio.currentTime)
   }
 
   const handleLoadedData = () => {
-    setDuration(audioRef?.current?.duration || 0)
+    const audio = audioRef.current
+
+    if (!audio) return
+
+    setDuration(audio.duration)
   }
 
   const handleSeek = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!audioRef?.current) return
+    const audio = audioRef.current
+
+    if (!audio) return
 
     const seekTime = Number(event.target.value)
-    audioRef.current.currentTime = seekTime ?? 0
+    audio.currentTime = seekTime ?? 0
     setCurrentTime(seekTime)
   }
 
-  if (audioRef.current) {
-    audioRef.current.volume = volume
+  const handleRewind = () => {
+    const audio = audioRef.current
+
+    if (!audio) return
+
+    audio.currentTime -= 10
   }
+
+  const handleForward = () => {
+    const audio = audioRef.current
+
+    if (!audio) return
+
+    audio.currentTime += 10
+  }
+
+  useEffect(() => {
+    const audio = audioRef.current
+
+    if (audio) {
+      audio.volume = volume
+    }
+  }, [])
 
   useEffect(() => {
     if (currentTime === duration) {
@@ -80,7 +106,7 @@ export const LongMusicCard = ({ className, music }: LongMusicCardProps) => {
 
       {/* Card Actions */}
       <div className="mx-auto flex items-center gap-5 sm:gap-12 md:mx-0 md:justify-between">
-        <button className="text-zinc-200">
+        <button className="text-zinc-200" onClick={handleRewind}>
           <IoPlayBack size={28} />
         </button>
 
@@ -88,7 +114,7 @@ export const LongMusicCard = ({ className, music }: LongMusicCardProps) => {
           {isPlaying ? <IoPause size={28} /> : <IoPlay size={28} />}
         </button>
 
-        <button className="text-zinc-200">
+        <button className="text-zinc-200" onClick={handleForward}>
           <IoPlayForward size={28} />
         </button>
       </div>
