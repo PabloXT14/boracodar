@@ -5,8 +5,6 @@ import {
   IoPlayBack,
   IoPlayForward,
   IoPause,
-  IoVolumeMedium,
-  IoVolumeMute,
 } from 'react-icons/io5'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { formatTime } from '../../utils/formate-time'
@@ -49,12 +47,6 @@ export const LongMusicCard = ({ className, music }: LongMusicCardProps) => {
     audioRef.current.currentTime = seekTime ?? 0
     setCurrentTime(seekTime)
   }
-
-  // const handleVolumeChange = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const newVolume = parseFloat(event.target.value)
-
-  //   setVolume(newVolume)
-  // }
 
   if (audioRef.current) {
     audioRef.current.volume = volume
@@ -111,24 +103,6 @@ export const LongMusicCard = ({ className, music }: LongMusicCardProps) => {
 
       {/* Card Timeline */}
       <div className="flex flex-col gap-2.5">
-        {/* Card Volume (future) */}
-        {/* <div className="group flex cursor-pointer items-center gap-2">
-          {volume > 0 ? (
-            <IoVolumeMedium size={18} className="text-zinc-200" />
-          ) : (
-            <IoVolumeMute size={18} className="text-zinc-200" />
-          )}
-          <input
-            type="range"
-            min={0}
-            max={1}
-            step={0.01}
-            value={volume}
-            onChange={handleVolumeChange}
-            className="hidden h-1.5 w-full cursor-pointer appearance-none overflow-hidden rounded-full border-none bg-zinc-300/30 outline-none transition-all group-hover:inline-block [&::-webkit-slider-thumb]:h-1.5 [&::-webkit-slider-thumb]:w-1.5 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-zinc-300 [&::-webkit-slider-thumb]:shadow-[-403px_0_0_400px] [&::-webkit-slider-thumb]:shadow-zinc-300"
-          />
-        </div> */}
-
         <input
           type="range"
           value={currentTime}
