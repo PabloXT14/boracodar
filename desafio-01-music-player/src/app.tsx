@@ -9,13 +9,13 @@ import musicUrl03 from './assets/musics/Show me the Code - Temporada 01 (Theme).
 export function App() {
   const music1: Music = {
     url: musicUrl01,
-    name: 'Never Stop Learning',
+    name: 'Build The Future',
     artist: 'Banda Rocketseat',
   }
 
   const music2: Music = {
     url: musicUrl02,
-    name: 'Build The Future',
+    name: 'Never Stop Learning',
     artist: 'Banda Rocketseat',
   }
 
