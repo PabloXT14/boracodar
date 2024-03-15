@@ -1,9 +1,9 @@
 import { twMerge } from 'tailwind-merge'
 import bgMusic from '../../assets/images/bg-music.png'
 import { IoPlay, IoPlayBack, IoPlayForward, IoPause } from 'react-icons/io5'
-import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { formatTime } from '../../utils/formate-time'
 import { Music } from '../@types/music'
+import { useMusic } from '../../hooks/use-music'
 
 type LongMusicCardProps = {
   className?: string
@@ -11,78 +11,18 @@ type LongMusicCardProps = {
 }
 
 export const LongMusicCard = ({ className, music }: LongMusicCardProps) => {
-  const audioRef = useRef<HTMLAudioElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
-  const volume = 0.4
-
-  const togglePlayPause = () => {
-    const audio = audioRef.current
-
-    if (!audio) return
-
-    if (isPlaying) audio.pause()
-    else audio.play()
-
-    setIsPlaying((prevState) => !prevState)
-  }
-
-  const handleTimeUpdate = () => {
-    const audio = audioRef.current
-
-    if (!audio) return
-
-    setCurrentTime(audio.currentTime)
-  }
-
-  const handleLoadedData = () => {
-    const audio = audioRef.current
-
-    if (!audio) return
-
-    setDuration(audio.duration)
-  }
-
-  const handleSeek = (event: ChangeEvent<HTMLInputElement>) => {
-    const audio = audioRef.current
-
-    if (!audio) return
-
-    const seekTime = Number(event.target.value)
-    audio.currentTime = seekTime ?? 0
-    setCurrentTime(seekTime)
-  }
-
-  const handleRewind = () => {
-    const audio = audioRef.current
-
-    if (!audio) return
-
-    audio.currentTime -= 10
-  }
-
-  const handleForward = () => {
-    const audio = audioRef.current
-
-    if (!audio) return
-
-    audio.currentTime += 10
-  }
-
-  useEffect(() => {
-    const audio = audioRef.current
-
-    if (audio) {
-      audio.volume = volume
-    }
-  }, [])
-
-  useEffect(() => {
-    if (currentTime === duration) {
-      setIsPlaying(false)
-    }
-  }, [currentTime, duration])
+  const {
+    audioRef,
+    currentTime,
+    duration,
+    isPlaying,
+    handleLoadedData,
+    handleTimeUpdate,
+    togglePlayPause,
+    handleSeek,
+    handleForward,
+    handleRewind,
+  } = useMusic()
 
   return (
     <div
