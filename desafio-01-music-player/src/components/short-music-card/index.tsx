@@ -1,12 +1,25 @@
 import { twMerge } from 'tailwind-merge'
 import bgMusic from '../../assets/images/bg-music.png'
-import { IoPlay, IoPlayBack, IoPlayForward } from 'react-icons/io5'
+import { IoPause, IoPlay, IoPlayBack, IoPlayForward } from 'react-icons/io5'
+import { Music } from '../@types/music'
+import { useMusic } from '../../hooks/use-music'
 
 type ShortMusicCardProps = {
   className?: string
+  music: Music
 }
 
-export const ShortMusicCard = ({ className }: ShortMusicCardProps) => {
+export const ShortMusicCard = ({ className, music }: ShortMusicCardProps) => {
+  const {
+    audioRef,
+    isPlaying,
+    handleLoadedData,
+    handleTimeUpdate,
+    togglePlayPause,
+    handleForward,
+    handleRewind,
+  } = useMusic()
+
   return (
     <div
       className={twMerge(
@@ -21,24 +34,32 @@ export const ShortMusicCard = ({ className }: ShortMusicCardProps) => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold text-zinc-200">Acorda Devinho</h2>
+          <h2 className="text-2xl font-bold text-zinc-200">{music.name}</h2>
           <span className="text-xl font-normal text-zinc-200/65">
-            Banda Rocketseat
+            {music.artist}
           </span>
         </div>
       </div>
 
+      {/* Card Audio */}
+      <audio
+        ref={audioRef}
+        src={music.url}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedData={handleLoadedData}
+      />
+
       {/* Card Actions */}
       <div className="mx-auto flex items-center gap-5 sm:gap-[50px]">
-        <button className="text-zinc-200">
+        <button className="text-zinc-200" onClick={handleRewind}>
           <IoPlayBack size={28} />
         </button>
 
-        <button className="text-zinc-200">
-          <IoPlay size={28} />
+        <button className="text-zinc-200" onClick={togglePlayPause}>
+          {isPlaying ? <IoPause size={28} /> : <IoPlay size={28} />}
         </button>
 
-        <button className="text-zinc-200">
+        <button className="text-zinc-200" onClick={handleForward}>
           <IoPlayForward size={28} />
         </button>
       </div>
