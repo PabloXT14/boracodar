@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+<h1 align="center"> Player de Música </h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O player de música é um componente para tocar áudios. Ele pode ser utilizado tanto em aplicações web quanto no mobile. Escute as melhores músicas da [Rocketseat](https://www.rocketseat.com.br/) em diferentes formatos de card player.
 
-Currently, two official plugins are available:
+<p align="center">
+  <a href="#-deploy">Deploy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
 
-## Expanding the ESLint configuration
+<p align="center">
+  <img src=".github/cover.png" width="100%">
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## 🔗 Deploy
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+O deploy da aplicação pode ser acessada através do seguinte link: https://pabloxt14-music-player.vercel.app/
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## 🎨 Layout
+
+Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1195050524500542670). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- TypeScript
+- React (Vite)
+- TailwindCSS
+- React Icons
+
+
+## 📝 Licença
+
+Esse projeto está sob a licença MIT.
+
+---
+
+<p align="center">
+  Feito com 💙 por Pablo Alan
+</p>

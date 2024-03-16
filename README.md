@@ -17,7 +17,7 @@
                 <img width="300" height="1"> 
                 <p> 
                     <small>
-                        NAME
+                      NAME
                     </small>
                 </p>
             </th>
@@ -25,7 +25,7 @@
                 <img width="140" height="1">
                 <p align="center"> 
                     <small>
-                    STATUS
+                    DEPLOY
                     </small>
                 </p>
             </th>
@@ -42,11 +42,24 @@
     <tbody>
         <tr>
             <td>01</td>
-            <td><a href="01">Music Player</a></td>
-            <td align="center">🚧 Desenvolvendo</td>
+            <td>
+              <a href="01">Music Player</a>
+            </td>
             <td align="center">
-            <a href="01"><img width="300px" src="01/.github/preview.jpg" /></a></td>
+              <a href="https://pabloxt14-music-player.vercel.app/">Link</a>
+            </td>
+            <td align="center">
+              <a href="./desafio-01-music-player/">
+                <img width="300px" src="./desafio-01-music-player/.github/cover.png" />
+              </a>
+            </td>
         </tr>
     </tbody>
   </table>
+</p>
+
+---
+
+<p align="center">
+  Feito com 💙 por Pablo Alan
 </p>
