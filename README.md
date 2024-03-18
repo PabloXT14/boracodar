@@ -49,8 +49,8 @@
               <a href="https://pabloxt14-music-player.vercel.app/">Link</a>
             </td>
             <td align="center">
-              <a href="./desafio-01-music-player/">
-                <img width="300px" src="./desafio-01-music-player/.github/cover.png" />
+              <a href="#">
+                <img width="300px" src="./.github/cover.png" />
               </a>
             </td>
         </tr>
