@@ -43,10 +43,10 @@
         <tr>
             <td>01</td>
             <td>
-              <a href="01">Music Player</a>
+              <a href="https://github.com/PabloXT14/boracodar-01" target="_blank">Music Player</a>
             </td>
             <td align="center">
-              <a href="https://pabloxt14-music-player.vercel.app/">Link</a>
+              <a href="https://pabloxt14-music-player.vercel.app/" target="_blank">Link</a>
             </td>
             <td align="center">
               <a href="#">
