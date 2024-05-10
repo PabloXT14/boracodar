@@ -56,6 +56,7 @@
           </a>
         </td>
       </tr>
+      <!--  -->
       <tr>
         <td>02</td>
         <td align="center">
@@ -67,6 +68,21 @@
         <td align="center">
           <a href="#">
             <img width="300px" src="./.github/boracodar-02-cover.png" />
+          </a>
+        </td>
+      </tr>
+      <!--  -->
+      <tr>
+        <td>03</td>
+        <td align="center">
+          <a href="https://github.com/PabloXT14/boracodar-03" target="_blank">Buttons & Cursors</a>
+        </td>
+        <td align="center">
+          <a href="https://pabloxt14-buttons-and-cursors.vercel.app/" target="_blank">Link</a>
+        </td>
+        <td align="center">
+          <a href="#">
+            <img width="300px" src="./.github/boracodar-03-cover.png" />
           </a>
         </td>
       </tr>
